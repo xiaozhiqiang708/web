@@ -187,14 +187,21 @@
                 首页 > 美容护肤/美体/精油 > 防晒 > 韩国 RE:CIPE 水晶清爽防水防晒喷雾SPF50 150ml/瓶
             </div>
             <div class="div0402">
-                <div style="float: left;">
-                    <img src="img/pp0.jpeg" style="border: 1px solid #d0cdc7;margin-left:20px;margin-top: 20px;">
-                    <div class="div040201">
-                        <button style="background-color: #ffffff;border: none;"><img src="img/spanl.jpg"></button>
-                        <button style="background-color: #ffffff;border: none;"><img src="img/sp0.jpeg"></button>
-                        <button style="background-color: #ffffff;border: none;"><img src="img/sp1.jpeg"></button>
-                        <button style="background-color: #ffffff;border: none;float: right;"><img src="img/spanr.jpg"></button>
+                <div id="box">
+                    <div id="img1">
+                        <img src="img/pp0.jpeg" id="Simg"/>
+                        <div id="slider"></div>
                     </div>
+
+                    <div id="img2">
+                        <img src="img/pp0.jpeg" id="Bimg" />
+                    </div>
+                </div>
+                <div class="div040201">
+                    <button style="background-color: #ffffff;border: none;"><img src="img/spanl.jpg"></button>
+                    <button style="background-color: #ffffff;border: none;" id="b1"><img src="img/sp0.jpeg"></button>
+                    <button style="background-color: #ffffff;border: none;" id="b2"><img src="img/sp1.jpeg"></button>
+                    <button style="background-color: #ffffff;border: none;float: right;"><img src="img/spanr.jpg"></button>
                 </div>
                 <div class="div040202">
                     <div>韩国 RE:CIPE 水晶清爽防水防晒喷雾SPF50 150ml/瓶</div>
@@ -202,7 +209,7 @@
                         【限购3件】超透明无痕防晒，防水防汗定妆，保湿降温不黏腻。水晶防晒喷雾，喷后皮<br>肤水润，不油，不留白，更不会像防晒霜那样抹不开，
                         非常实用，开始存货吧。
                     </div>
-                    <div style="margin-top: 35px;font-size: 12px;">
+                    <div style="margin-top: 35px;font-size: 12px;position: absolute;">
                         <span style="font-size: 12px;padding-left: 20px;">价格</span>
                         <span style="font-size: 12px;padding-left: 50px;color: #ff0000;font-size: 18px;">¥71</span>
                         <span style="font-size: 12px;padding-left: 20px;text-decoration: line-through;">¥150</span>
@@ -237,7 +244,7 @@
                     <button style="width: 150px;height: 32px;border: 1px solid #ff0754;background-color: #ffffff;border-radius: 5px;margin-top: 15px;margin-left: 20px;font-size: 15px;color: #ff0754">
                         立即购买
                     </button>
-                    <button style="width: 150px;height: 32px;background-color:  #ff0754;border-radius: 5px;margin-top: 15px;margin-left: 20px;font-size: 15px;color: #ffffff">
+                    <button style="width: 150px;height: 32px;background-color:  #ff0754;border-radius: 5px;margin-top: 15px;margin-left: 20px;font-size: 15px;color: #ffffff" id="b3">
                         加入购物车
                     </button>
                 </div>
@@ -246,33 +253,6 @@
             <img src="img/a_07.jpg">
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <div>
         <div class="div3">
@@ -459,6 +439,60 @@
        
     </div>
 
+    <script>
+        var img1 = document.getElementById("img1");
+        var img2 = document.getElementById("img2");
+        var slider = document.getElementById("slider");
+        var Simg = document.getElementById("Simg");
+        var Bimg = document.getElementById("Bimg");
+        var box = document.getElementById('box');
+        var b1 = document.getElementById("b1");
+        var b2 = document.getElementById("b2");
+        var b3 = document.getElementById("b3");
+        img1.onmouseover = function () {
+            slider.style.display = 'block';
+            img2.style.display = 'block';
+            box.style.width = '820px';
+        }
+        img1.onmouseout = function () {
+            slider.style.display = 'none';
+            img2.style.display = 'none';
+            box.style.width = '410px';
+        }
 
+        img1.onmousemove = function (ev) {
+            var ev = ev || window.event;
+
+            var oL = ev.clientX - box.offsetLeft - slider.offsetWidth /2 -160;
+            var oT = ev.clientY - box.offsetTop - slider.offsetHeight /2 - 200;
+
+            var oMaxw = img1.offsetWidth - slider.offsetWidth;
+            var oMaxh = img1.offsetHeight - slider.offsetHeight;
+
+            oL = oL > oMaxw ? oMaxw : oL < 0 ? 0 : oL;
+            oT = oT > oMaxh ? oMaxh : oT < 0 ? 0 : oT;
+
+            slider.style.left = oL + 'px';
+            slider.style.top = oT + 'px';
+
+            var scale = img2.offsetWidth / slider.offsetWidth;
+            Bimg.style.left = -(scale * oL/2) + 'px'
+            Bimg.style.top = -(scale * oT/2) + 'px'
+        }
+
+        b1.onclick = function(){
+            Simg.src = "img/pp0.jpeg";
+            Bimg.src = "img/pp0.jpeg";
+        }
+        b2.onclick = function(){
+            Simg.src = "img/pp1.jpeg";
+            Bimg.src = "img/pp1.jpeg";
+        }
+        b3.onclick = function(){
+            var img = new Image();
+            img.src = "img/rr11_02.jpg"
+            alert(img);
+        }
+    </script>
 </body>
 </html>
