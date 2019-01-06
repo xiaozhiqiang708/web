@@ -82,20 +82,92 @@ div{
 }
 .div0402{
 	float: left;
+	position: relative;
 	width: 995px;
 	height: 632px;
 	background-color: #ffffff;
 }
-.div040201{
 
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#box {
+	top: 20px;
+    left: 20px;
+    width: 410px;
+    height: 410px;
+    z-index: 3;
+    position: absolute;
+}
+
+#img1 {
+    width: 410px;
+    height: 410px;
+    position: absolute;
+    /*outline: 2px solid red;*/
+}
+
+#img1 img {
+    width: 410px;
+    height: 410px;
+    border:1px solid #d0cdc7;
+    /*outline: 2px solid red;*/
+}
+
+#slider {
+    width: 150px;
+    height: 150px;
+    background: #CCC;
+    opacity: 0.4;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: move;
+    display: none;
+}
+
+#img2 {
+    position: absolute;
+    right:  0;
+    top: 0;
+    display: none;
+    width: 410px;
+    height: 410px;
+    overflow: hidden;
+    border:1px solid #d0cdc7;
+    /*outline: 2px solid red;*/
+}
+
+#Bimg {
+    width:800px;
+    height:800px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.div040201{
+	top: 450px;
+	left: 20px;
+	z-index: 2;
+	position: absolute;
 	height: 70px;
 	width: 408px;
-	padding-top: 20px;
-	padding-left: 20px;
 	
 }
+
+
 .div040202{
-	float: right;
+	right: 0;
+	position: absolute;
+	z-index: 1;
 	width: 500px;
 	height: 500px;
 	margin-top: 20px;
