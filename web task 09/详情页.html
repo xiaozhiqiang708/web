@@ -232,9 +232,9 @@
                         <span style="font-size: 12px;padding-left: 20px;float: left;">
                             数量
                         </span>
-                        <button style="margin-left: 60px;"> - </button>
-                        <input type="text" style="width: 50px;height: 28px;border: 1px solid #d0cdc7;text-align: center;" value="1">
-                        <button> + </button>
+                        <button style="margin-left: 60px;" id="b3"> - </button>
+                        <input type="text" id="text" style="width: 50px;height: 28px;border: 1px solid #d0cdc7;text-align: center;" value = "1">
+                        <button id="b4"> + </button>
                     </div>
                     <img src="img/oo_03.jpg"><br>
                     <span style="font-size: 12px;padding-left: 100px;">
@@ -244,7 +244,7 @@
                     <button style="width: 150px;height: 32px;border: 1px solid #ff0754;background-color: #ffffff;border-radius: 5px;margin-top: 15px;margin-left: 20px;font-size: 15px;color: #ff0754">
                         立即购买
                     </button>
-                    <button style="width: 150px;height: 32px;background-color:  #ff0754;border-radius: 5px;margin-top: 15px;margin-left: 20px;font-size: 15px;color: #ffffff" id="b3">
+                    <button style="width: 150px;height: 32px;background-color:  #ff0754;border-radius: 5px;margin-top: 15px;margin-left: 20px;font-size: 15px;color: #ffffff" id="">
                         加入购物车
                     </button>
                 </div>
@@ -446,9 +446,11 @@
         var Simg = document.getElementById("Simg");
         var Bimg = document.getElementById("Bimg");
         var box = document.getElementById('box');
+        var text = document.getElementById('text');
         var b1 = document.getElementById("b1");
         var b2 = document.getElementById("b2");
         var b3 = document.getElementById("b3");
+        var b4 = document.getElementById("b4");
         img1.onmouseover = function () {
             slider.style.display = 'block';
             img2.style.display = 'block';
@@ -489,9 +491,12 @@
             Bimg.src = "img/pp1.jpeg";
         }
         b3.onclick = function(){
-            var img = new Image();
-            img.src = "img/rr11_02.jpg"
-            alert(img);
+            if(parseInt(text.value) > 1){
+                text.value = parseInt(text.value) - 1;
+            }
+        }
+        b4.onclick = function(){
+            text.value = parseInt(text.value) + 1;
         }
     </script>
 </body>
